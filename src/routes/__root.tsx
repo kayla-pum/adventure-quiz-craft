@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Platform Learning Management System berbasis gamifikasi. Bank soal, live room, Adventure Mode dengan energi & skill Freeze, Double Arrow, Shield.",
       },
-      { property: "og:title", content: "QuestLMS — LMS Gamifikasi" },
+      { property: "og:title", content: "QuestLMS — LMS Gamifikasi dengan Adventure Mode" },
       {
         property: "og:description",
         content:
@@ -95,6 +95,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "QuestLMS — LMS Gamifikasi dengan Adventure Mode" },
+      { name: "description", content: "Platform Learning Management System berbasis gamifikasi. Bank soal, live room, Adventure Mode dengan energi & skill Freeze, Double Arrow, Shield." },
+      { property: "og:description", content: "Platform Learning Management System berbasis gamifikasi. Bank soal, live room, Adventure Mode dengan energi & skill Freeze, Double Arrow, Shield." },
+      { name: "twitter:description", content: "Platform Learning Management System berbasis gamifikasi. Bank soal, live room, Adventure Mode dengan energi & skill Freeze, Double Arrow, Shield." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e0b5b73c-346e-42bc-b193-ee1533c6cc9a/id-preview-3bbf407b--025cb8e8-f915-4ed5-8b6e-1a22808695fc.lovable.app-1783313052937.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e0b5b73c-346e-42bc-b193-ee1533c6cc9a/id-preview-3bbf407b--025cb8e8-f915-4ed5-8b6e-1a22808695fc.lovable.app-1783313052937.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
