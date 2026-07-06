@@ -38,6 +38,133 @@ export type Database = {
         }
         Relationships: []
       }
+      question_banks: {
+        Row: {
+          created_at: string
+          creator_id: string
+          description: string | null
+          id: string
+          is_published: boolean
+          theme: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          creator_id: string
+          description?: string | null
+          id?: string
+          is_published?: boolean
+          theme?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          creator_id?: string
+          description?: string | null
+          id?: string
+          is_published?: boolean
+          theme?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      questions: {
+        Row: {
+          bank_id: string
+          choices: Json
+          correct_index: number
+          created_at: string
+          id: string
+          order_index: number
+          points: number
+          prompt: string
+          time_limit_sec: number
+          updated_at: string
+        }
+        Insert: {
+          bank_id: string
+          choices?: Json
+          correct_index?: number
+          created_at?: string
+          id?: string
+          order_index?: number
+          points?: number
+          prompt: string
+          time_limit_sec?: number
+          updated_at?: string
+        }
+        Update: {
+          bank_id?: string
+          choices?: Json
+          correct_index?: number
+          created_at?: string
+          id?: string
+          order_index?: number
+          points?: number
+          prompt?: string
+          time_limit_sec?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "questions_bank_id_fkey"
+            columns: ["bank_id"]
+            isOneToOne: false
+            referencedRelation: "question_banks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rooms: {
+        Row: {
+          bank_id: string | null
+          code: string
+          countdown_sec: number
+          created_at: string
+          guru_id: string
+          id: string
+          status: string
+          theme: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          bank_id?: string | null
+          code: string
+          countdown_sec?: number
+          created_at?: string
+          guru_id: string
+          id?: string
+          status?: string
+          theme?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          bank_id?: string | null
+          code?: string
+          countdown_sec?: number
+          created_at?: string
+          guru_id?: string
+          id?: string
+          status?: string
+          theme?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rooms_bank_id_fkey"
+            columns: ["bank_id"]
+            isOneToOne: false
+            referencedRelation: "question_banks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
