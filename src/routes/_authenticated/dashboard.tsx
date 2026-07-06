@@ -156,13 +156,15 @@ function CreatorDashboard() {
         <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-semibold">Bank Soal Kamu</h2>
-            <Button className="bg-brand text-brand-foreground hover:brightness-110">
-              <Plus className="mr-1 size-4" /> Buat Bank Soal
-            </Button>
+            <Link to="/creator/banks">
+              <Button className="bg-brand text-brand-foreground hover:brightness-110">
+                <Plus className="mr-1 size-4" /> Kelola Bank Soal
+              </Button>
+            </Link>
           </div>
           <EmptyState
-            title="Belum ada bank soal"
-            desc="Mulai bangun modul pertama untuk dipublikasikan ke Practice Mode."
+            title="Buka manajer bank soal"
+            desc="Buat, edit, dan publikasikan bank soal untuk Practice Mode & room guru."
           />
         </div>
       </div>
@@ -181,12 +183,14 @@ function GuruDashboard() {
         <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-semibold">Room Pembelajaran</h2>
-            <Button className="bg-accent text-accent-foreground hover:brightness-110">
-              <Plus className="mr-1 size-4" /> Buat Room Baru
-            </Button>
+            <Link to="/guru/rooms">
+              <Button className="bg-accent text-accent-foreground hover:brightness-110">
+                <Plus className="mr-1 size-4" /> Kelola Room
+              </Button>
+            </Link>
           </div>
           <EmptyState
-            title="Belum ada room aktif"
+            title="Buka manajer room"
             desc="Buat room, pilih bank soal, atur countdown, dan bagikan kode ke player."
           />
         </div>
