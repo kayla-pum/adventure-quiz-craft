@@ -69,34 +69,34 @@ function Landing() {
       </nav>
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-32 text-center">
+      <section className="mx-auto max-w-7xl px-4 pt-12 pb-20 text-center sm:px-6 sm:pt-20 sm:pb-32">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-[10px] font-semibold tracking-widest text-brand uppercase">
           <Sparkles className="size-3" /> Adventure Mode Aktif
         </div>
-        <h1 className="mx-auto mb-6 max-w-[20ch] text-balance text-4xl leading-tight font-semibold tracking-tight md:text-6xl">
+        <h1 className="mx-auto mb-6 max-w-[20ch] text-balance text-3xl leading-tight font-semibold tracking-tight sm:text-4xl md:text-6xl">
           Ubah Belajar Menjadi Petualangan Epik
         </h1>
-        <p className="mx-auto mb-12 max-w-[52ch] text-pretty text-lg text-muted-foreground md:text-xl">
+        <p className="mx-auto mb-10 max-w-[52ch] text-pretty text-base text-muted-foreground sm:mb-12 sm:text-lg md:text-xl">
           Platform LMS gamifikasi di mana setiap kuis adalah pertarungan boss dan
           setiap materi adalah harta karun.
         </p>
 
         {/* Join code */}
-        <div className="mx-auto mb-20 max-w-md">
+        <div className="mx-auto mb-16 max-w-md sm:mb-20">
           <div className="group relative">
             <div className="absolute -inset-1 rounded-2xl bg-brand/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
-            <div className="relative flex rounded-xl bg-surface p-2 ring-1 ring-border transition-all focus-within:ring-brand/60">
+            <div className="relative flex flex-col gap-2 rounded-xl bg-surface p-2 ring-1 ring-border transition-all focus-within:ring-brand/60 sm:flex-row">
               <input
                 type="text"
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
                 placeholder="MASUKKAN KODE ROOM"
                 maxLength={8}
-                className="flex-1 border-none bg-transparent px-4 font-mono text-lg tracking-widest uppercase outline-none placeholder:text-muted-foreground/60"
+                className="min-w-0 flex-1 border-none bg-transparent px-4 py-2 font-mono text-base tracking-widest uppercase outline-none placeholder:text-muted-foreground/60 sm:text-lg"
               />
               <Link
                 to="/auth"
-                className="flex items-center gap-2 rounded-lg bg-brand py-2 pr-4 pl-3 text-sm font-semibold text-brand-foreground transition-all hover:brightness-110"
+                className="flex items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:brightness-110"
               >
                 <Play className="size-4" /> GABUNG
               </Link>
