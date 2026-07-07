@@ -44,14 +44,14 @@ function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-brand/30 selection:text-brand">
       {/* Nav */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-md bg-brand">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+        <Link to="/" className="flex min-w-0 items-center gap-2">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-brand">
             <div className="size-4 rotate-45 bg-background" />
           </div>
-          <span className="text-xl font-semibold tracking-tight">QUESTLMS</span>
+          <span className="truncate text-lg font-semibold tracking-tight sm:text-xl">QUESTLMS</span>
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
           <Link
             to="/auth"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -61,7 +61,7 @@ function Landing() {
           <Link
             to="/auth"
             search={{ mode: "signup" }}
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground ring-1 ring-brand transition-all hover:brightness-110"
+            className="rounded-md bg-brand px-3 py-2 text-xs font-semibold text-brand-foreground ring-1 ring-brand transition-all hover:brightness-110 sm:px-4 sm:text-sm"
           >
             Mulai Gratis
           </Link>
