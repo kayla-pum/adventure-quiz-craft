@@ -263,6 +263,9 @@ function Landing() {
           </Link>
         </div>
       </section>
+
+      <footer className="border-t border-border px-4 py-10 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <div className="grid size-6 place-items-center rounded bg-secondary">
               <div className="size-3 rotate-45 bg-brand" />
