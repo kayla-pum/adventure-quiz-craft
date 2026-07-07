@@ -191,6 +191,34 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_answer: {
+        Args: { _choice_index: number; _question_id: string }
+        Returns: boolean
+      }
+      get_play_questions: {
+        Args: { _bank_id: string }
+        Returns: {
+          bank_id: string
+          choices: Json
+          id: string
+          order_index: number
+          points: number
+          prompt: string
+          time_limit_sec: number
+        }[]
+      }
+      get_room_by_code: {
+        Args: { _code: string }
+        Returns: {
+          bank_id: string
+          code: string
+          countdown_sec: number
+          id: string
+          status: string
+          theme: string
+          title: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
