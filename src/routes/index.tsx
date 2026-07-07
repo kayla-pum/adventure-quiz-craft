@@ -131,8 +131,8 @@ function Landing() {
       </section>
 
       {/* Adventure Mode HUD */}
-      <section className="border-y border-border bg-surface/40 px-6 py-24">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <section className="border-y border-border bg-surface/40 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-3 inline-block text-[10px] font-semibold tracking-[0.2em] text-accent uppercase">
               Fitur Unggulan
