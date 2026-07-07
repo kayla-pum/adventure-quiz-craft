@@ -119,17 +119,17 @@ function RoomsPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-surface/50 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
+        <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link to="/dashboard">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="mr-1 size-4" /> Dashboard
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold">Room Pembelajaran</h1>
+          <h1 className="truncate text-base font-semibold sm:text-lg">Room Pembelajaran</h1>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 py-8">
+      <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="mb-8 rounded-2xl bg-surface p-6 ring-1 ring-border">
           <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
             <Plus className="size-5 text-accent" /> Buat Room Baru
@@ -193,10 +193,10 @@ function RoomsPage() {
             {rooms.map((r) => (
               <div
                 key={r.id}
-                className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-surface p-4 ring-1 ring-border"
+                className="grid grid-cols-1 gap-3 rounded-xl bg-surface p-4 ring-1 ring-border sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="truncate font-medium">{r.title}</span>
                     <span
                       className={`rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase ${
@@ -215,7 +215,7 @@ function RoomsPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 sm:justify-end">
                   <button
                     onClick={() => copy(r.code)}
                     className="flex items-center gap-2 rounded-md bg-background px-3 py-1.5 font-mono text-sm font-bold tracking-widest ring-1 ring-border hover:ring-brand/60"

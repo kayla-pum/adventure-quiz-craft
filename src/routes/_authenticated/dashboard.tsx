@@ -72,21 +72,21 @@ function Dashboard() {
     <div className="min-h-screen bg-background">
       {/* Top HUD */}
       <header className="border-b border-border bg-surface/50 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="grid size-8 place-items-center rounded-md bg-brand">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <Link to="/" className="flex min-w-0 items-center gap-2">
+            <div className="grid size-8 shrink-0 place-items-center rounded-md bg-brand">
               <div className="size-4 rotate-45 bg-background" />
             </div>
-            <span className="text-lg font-semibold tracking-tight">QUESTLMS</span>
+            <span className="truncate text-base font-semibold tracking-tight sm:text-lg">QUESTLMS</span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <div className="hidden text-right sm:block">
               <div className="text-sm font-medium">{displayName}</div>
               <div className="text-[10px] tracking-widest text-muted-foreground uppercase">
                 {email}
               </div>
             </div>
-            <div className="grid size-10 place-items-center rounded-full bg-brand/20 text-sm font-bold text-brand ring-2 ring-brand/40">
+            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-brand/20 text-sm font-bold text-brand ring-2 ring-brand/40 sm:size-10">
               {displayName.slice(0, 1).toUpperCase()}
             </div>
             <Button variant="ghost" size="sm" onClick={handleSignOut}>
@@ -96,7 +96,7 @@ function Dashboard() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-10">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
         {/* Role switcher */}
         {roles.length > 0 && (
           <div className="mb-8 flex flex-wrap items-center gap-3">
@@ -120,14 +120,14 @@ function Dashboard() {
         )}
 
         {/* Welcome */}
-        <div className="mb-8 rounded-2xl border border-brand/30 bg-gradient-to-br from-brand/15 via-transparent to-transparent p-8">
+        <div className="mb-8 rounded-2xl border border-brand/30 bg-gradient-to-br from-brand/15 via-transparent to-transparent p-5 sm:p-8">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-[10px] font-semibold tracking-widest text-brand uppercase">
             <Sparkles className="size-3" /> Ready Player One
           </div>
-          <h1 className="mb-2 text-3xl font-semibold tracking-tight md:text-4xl">
+          <h1 className="mb-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
             Selamat datang, {displayName}
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-sm text-muted-foreground sm:text-base">
             {activeRole === "creator" && "Bangun bank soal dan publikasikan modul pembelajaran untuk semua player."}
             {activeRole === "guru" && "Kelola room, atur countdown, dan pantau performa player secara real-time."}
             {activeRole === "player" && "Pilih bank soal untuk practice, atau gabung room dengan kode dari guru."}
@@ -153,11 +153,11 @@ function CreatorDashboard() {
       <StatCard label="Dipakai Player" value="0" icon={<Swords className="size-5" />} />
 
       <div className="lg:col-span-3">
-        <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Bank Soal Kamu</h2>
+        <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold sm:text-xl">Bank Soal Kamu</h2>
             <Link to="/creator/banks">
-              <Button className="bg-brand text-brand-foreground hover:brightness-110">
+              <Button size="sm" className="bg-brand text-brand-foreground hover:brightness-110">
                 <Plus className="mr-1 size-4" /> Kelola Bank Soal
               </Button>
             </Link>
@@ -180,11 +180,11 @@ function GuruDashboard() {
       <StatCard label="Sesi Selesai" value="0" icon={<Shield className="size-5" />} />
 
       <div className="lg:col-span-3">
-        <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Room Pembelajaran</h2>
+        <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold sm:text-xl">Room Pembelajaran</h2>
             <Link to="/guru/rooms">
-              <Button className="bg-accent text-accent-foreground hover:brightness-110">
+              <Button size="sm" className="bg-accent text-accent-foreground hover:brightness-110">
                 <Plus className="mr-1 size-4" /> Kelola Room
               </Button>
             </Link>
@@ -203,18 +203,18 @@ function PlayerDashboard() {
   const [code, setCode] = useState("");
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <div className="lg:col-span-2 rounded-2xl bg-surface p-8 ring-1 ring-border">
-        <h2 className="mb-1 text-xl font-semibold">Gabung Room</h2>
+      <div className="lg:col-span-2 rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+        <h2 className="mb-1 text-lg font-semibold sm:text-xl">Gabung Room</h2>
         <p className="mb-6 text-sm text-muted-foreground">
           Masukkan kode room dari guru untuk bertanding di Adventure Mode.
         </p>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <input
             value={code}
             onChange={(e) => setCode(e.target.value.toUpperCase())}
             placeholder="ABC123"
             maxLength={8}
-            className="flex-1 rounded-lg bg-background px-4 py-3 font-mono text-lg tracking-widest uppercase ring-1 ring-border outline-none focus:ring-brand/60"
+            className="min-w-0 flex-1 rounded-lg bg-background px-4 py-3 font-mono text-lg tracking-widest uppercase ring-1 ring-border outline-none focus:ring-brand/60"
           />
           <Button
             className="bg-brand text-brand-foreground hover:brightness-110"
@@ -228,7 +228,7 @@ function PlayerDashboard() {
           <h3 className="mb-3 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
             Loadout Adventure Mode
           </h3>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <SkillPreview icon={<Snowflake className="size-5" />} name="Freeze" color="text-arcade-sky ring-arcade-sky/40" />
             <SkillPreview icon={<Zap className="size-5" />} name="Double" color="text-accent ring-accent/40" />
             <SkillPreview icon={<Shield className="size-5" />} name="Shield" color="text-arcade-rose ring-arcade-rose/40" />
@@ -236,8 +236,8 @@ function PlayerDashboard() {
         </div>
       </div>
 
-      <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
-        <h2 className="mb-1 text-xl font-semibold">Practice Mode</h2>
+      <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+        <h2 className="mb-1 text-lg font-semibold sm:text-xl">Practice Mode</h2>
         <p className="mb-6 text-sm text-muted-foreground">
           Belajar mandiri dari bank soal publik.
         </p>

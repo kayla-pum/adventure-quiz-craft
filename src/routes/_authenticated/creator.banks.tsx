@@ -90,17 +90,17 @@ function BanksPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-surface/50 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
+        <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link to="/dashboard">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="mr-1 size-4" /> Dashboard
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold">Bank Soal</h1>
+          <h1 className="truncate text-base font-semibold sm:text-lg">Bank Soal</h1>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 py-8">
+      <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="mb-8 rounded-2xl bg-surface p-6 ring-1 ring-border">
           <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
             <Plus className="size-5 text-brand" /> Buat Bank Soal Baru
@@ -142,11 +142,11 @@ function BanksPage() {
             {banks.map((b) => (
               <div
                 key={b.id}
-                className="flex items-center justify-between rounded-xl bg-surface p-4 ring-1 ring-border"
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl bg-surface p-4 ring-1 ring-border sm:flex sm:justify-between"
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2">
-                    <PencilRuler className="size-4 text-brand" />
+                  <div className="flex flex-wrap items-center gap-2">
+                    <PencilRuler className="size-4 shrink-0 text-brand" />
                     <span className="truncate font-medium">{b.title}</span>
                     {b.is_published && (
                       <span className="rounded-full bg-accent/20 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase text-accent">
@@ -160,7 +160,7 @@ function BanksPage() {
                     </div>
                   )}
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="col-span-2 flex flex-wrap items-center justify-end gap-2 sm:col-span-1 sm:shrink-0">
                   <Button size="sm" variant="ghost" onClick={() => togglePublish(b)}>
                     {b.is_published ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                   </Button>

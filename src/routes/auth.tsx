@@ -147,7 +147,7 @@ function AuthPage() {
           <ArrowLeft className="size-4" /> Kembali ke lobi
         </Link>
 
-        <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
+        <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
           <div className="mb-6 flex items-center gap-2">
             <div className="grid size-8 place-items-center rounded-md bg-brand">
               <div className="size-4 rotate-45 bg-background" />
@@ -207,16 +207,16 @@ function AuthPage() {
                           key={r.id}
                           type="button"
                           onClick={() => setRole(r.id)}
-                          className={`flex flex-col items-center gap-2 rounded-lg p-3 text-center text-xs ring-1 transition-all ${
+                          className={`flex flex-col items-center gap-1.5 rounded-lg p-2 text-center text-xs ring-1 transition-all sm:gap-2 sm:p-3 ${
                             active
                               ? `bg-secondary ring-2 ${r.color}`
                               : "bg-background ring-border hover:ring-border/80"
                           }`}
                         >
                           <Icon className={`size-5 ${active ? r.color.split(" ")[0] : "text-muted-foreground"}`} />
-                          <div>
+                          <div className="min-w-0">
                             <div className="font-semibold">{r.label}</div>
-                            <div className="text-[10px] text-muted-foreground">{r.desc}</div>
+                            <div className="hidden text-[10px] text-muted-foreground sm:block">{r.desc}</div>
                           </div>
                         </button>
                       );

@@ -44,14 +44,14 @@ function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-brand/30 selection:text-brand">
       {/* Nav */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-md bg-brand">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+        <Link to="/" className="flex min-w-0 items-center gap-2">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-brand">
             <div className="size-4 rotate-45 bg-background" />
           </div>
-          <span className="text-xl font-semibold tracking-tight">QUESTLMS</span>
+          <span className="truncate text-lg font-semibold tracking-tight sm:text-xl">QUESTLMS</span>
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
           <Link
             to="/auth"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -61,7 +61,7 @@ function Landing() {
           <Link
             to="/auth"
             search={{ mode: "signup" }}
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground ring-1 ring-brand transition-all hover:brightness-110"
+            className="rounded-md bg-brand px-3 py-2 text-xs font-semibold text-brand-foreground ring-1 ring-brand transition-all hover:brightness-110 sm:px-4 sm:text-sm"
           >
             Mulai Gratis
           </Link>
@@ -69,34 +69,34 @@ function Landing() {
       </nav>
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-32 text-center">
+      <section className="mx-auto max-w-7xl px-4 pt-12 pb-20 text-center sm:px-6 sm:pt-20 sm:pb-32">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-[10px] font-semibold tracking-widest text-brand uppercase">
           <Sparkles className="size-3" /> Adventure Mode Aktif
         </div>
-        <h1 className="mx-auto mb-6 max-w-[20ch] text-balance text-4xl leading-tight font-semibold tracking-tight md:text-6xl">
+        <h1 className="mx-auto mb-6 max-w-[20ch] text-balance text-3xl leading-tight font-semibold tracking-tight sm:text-4xl md:text-6xl">
           Ubah Belajar Menjadi Petualangan Epik
         </h1>
-        <p className="mx-auto mb-12 max-w-[52ch] text-pretty text-lg text-muted-foreground md:text-xl">
+        <p className="mx-auto mb-10 max-w-[52ch] text-pretty text-base text-muted-foreground sm:mb-12 sm:text-lg md:text-xl">
           Platform LMS gamifikasi di mana setiap kuis adalah pertarungan boss dan
           setiap materi adalah harta karun.
         </p>
 
         {/* Join code */}
-        <div className="mx-auto mb-20 max-w-md">
+        <div className="mx-auto mb-16 max-w-md sm:mb-20">
           <div className="group relative">
             <div className="absolute -inset-1 rounded-2xl bg-brand/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
-            <div className="relative flex rounded-xl bg-surface p-2 ring-1 ring-border transition-all focus-within:ring-brand/60">
+            <div className="relative flex flex-col gap-2 rounded-xl bg-surface p-2 ring-1 ring-border transition-all focus-within:ring-brand/60 sm:flex-row">
               <input
                 type="text"
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
                 placeholder="MASUKKAN KODE ROOM"
                 maxLength={8}
-                className="flex-1 border-none bg-transparent px-4 font-mono text-lg tracking-widest uppercase outline-none placeholder:text-muted-foreground/60"
+                className="min-w-0 flex-1 border-none bg-transparent px-4 py-2 font-mono text-base tracking-widest uppercase outline-none placeholder:text-muted-foreground/60 sm:text-lg"
               />
               <Link
                 to="/auth"
-                className="flex items-center gap-2 rounded-lg bg-brand py-2 pr-4 pl-3 text-sm font-semibold text-brand-foreground transition-all hover:brightness-110"
+                className="flex items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-all hover:brightness-110"
               >
                 <Play className="size-4" /> GABUNG
               </Link>
@@ -131,8 +131,8 @@ function Landing() {
       </section>
 
       {/* Adventure Mode HUD */}
-      <section className="border-y border-border bg-surface/40 px-6 py-24">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <section className="border-y border-border bg-surface/40 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-3 inline-block text-[10px] font-semibold tracking-[0.2em] text-accent uppercase">
               Fitur Unggulan
@@ -168,7 +168,7 @@ function Landing() {
           </div>
 
           {/* HUD Mockup */}
-          <div className="relative overflow-hidden rounded-3xl bg-background p-8 shadow-2xl ring-1 ring-border">
+          <div className="relative overflow-hidden rounded-3xl bg-background p-5 shadow-2xl ring-1 ring-border sm:p-8">
             <div className="absolute top-4 right-4">
               <div className="rounded-full bg-secondary/80 px-3 py-1 text-[10px] font-bold tracking-widest text-muted-foreground uppercase ring-1 ring-border backdrop-blur">
                 Live Session
@@ -212,17 +212,17 @@ function Landing() {
       </section>
 
       {/* Themes */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mb-12 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mb-10 flex flex-col gap-3 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
               Customization
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
               Dunia Anda, Aturan Anda
             </h2>
           </div>
-          <p className="max-w-[30ch] text-right text-sm text-muted-foreground">
+          <p className="max-w-[30ch] text-sm text-muted-foreground sm:text-right">
             7 tema visual untuk pengalaman imersif.
           </p>
         </div>
@@ -246,12 +246,12 @@ function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-4xl px-6 pb-24 text-center">
-        <div className="rounded-3xl border border-brand/30 bg-gradient-to-b from-brand/10 to-transparent p-12">
-          <h3 className="mb-4 text-3xl font-semibold tracking-tight">
+      <section className="mx-auto max-w-4xl px-4 pb-16 text-center sm:px-6 sm:pb-24">
+        <div className="rounded-3xl border border-brand/30 bg-gradient-to-b from-brand/10 to-transparent p-6 sm:p-12">
+          <h3 className="mb-4 text-2xl font-semibold tracking-tight sm:text-3xl">
             Siap memulai quest pertamamu?
           </h3>
-          <p className="mb-8 text-muted-foreground">
+          <p className="mb-8 text-sm text-muted-foreground sm:text-base">
             Daftar gratis. Pilih peranmu — Creator, Guru, atau Player.
           </p>
           <Link
@@ -264,7 +264,7 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-6 py-10">
+      <footer className="border-t border-border px-4 py-10 sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <div className="grid size-6 place-items-center rounded bg-secondary">
