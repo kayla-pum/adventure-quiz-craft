@@ -168,7 +168,7 @@ function Landing() {
           </div>
 
           {/* HUD Mockup */}
-          <div className="relative overflow-hidden rounded-3xl bg-background p-8 shadow-2xl ring-1 ring-border">
+          <div className="relative overflow-hidden rounded-3xl bg-background p-5 shadow-2xl ring-1 ring-border sm:p-8">
             <div className="absolute top-4 right-4">
               <div className="rounded-full bg-secondary/80 px-3 py-1 text-[10px] font-bold tracking-widest text-muted-foreground uppercase ring-1 ring-border backdrop-blur">
                 Live Session
