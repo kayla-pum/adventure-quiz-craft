@@ -153,11 +153,11 @@ function CreatorDashboard() {
       <StatCard label="Dipakai Player" value="0" icon={<Swords className="size-5" />} />
 
       <div className="lg:col-span-3">
-        <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Bank Soal Kamu</h2>
+        <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-lg font-semibold sm:text-xl">Bank Soal Kamu</h2>
             <Link to="/creator/banks">
-              <Button className="bg-brand text-brand-foreground hover:brightness-110">
+              <Button size="sm" className="bg-brand text-brand-foreground hover:brightness-110">
                 <Plus className="mr-1 size-4" /> Kelola Bank Soal
               </Button>
             </Link>
