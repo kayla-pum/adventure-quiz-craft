@@ -142,11 +142,11 @@ function BanksPage() {
             {banks.map((b) => (
               <div
                 key={b.id}
-                className="flex items-center justify-between rounded-xl bg-surface p-4 ring-1 ring-border"
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl bg-surface p-4 ring-1 ring-border sm:flex sm:justify-between"
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2">
-                    <PencilRuler className="size-4 text-brand" />
+                  <div className="flex flex-wrap items-center gap-2">
+                    <PencilRuler className="size-4 shrink-0 text-brand" />
                     <span className="truncate font-medium">{b.title}</span>
                     {b.is_published && (
                       <span className="rounded-full bg-accent/20 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase text-accent">
@@ -160,7 +160,7 @@ function BanksPage() {
                     </div>
                   )}
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="col-span-2 flex flex-wrap items-center justify-end gap-2 sm:col-span-1 sm:shrink-0">
                   <Button size="sm" variant="ghost" onClick={() => togglePublish(b)}>
                     {b.is_published ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                   </Button>
