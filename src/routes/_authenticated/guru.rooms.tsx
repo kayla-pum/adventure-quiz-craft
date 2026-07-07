@@ -193,10 +193,10 @@ function RoomsPage() {
             {rooms.map((r) => (
               <div
                 key={r.id}
-                className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-surface p-4 ring-1 ring-border"
+                className="grid grid-cols-1 gap-3 rounded-xl bg-surface p-4 ring-1 ring-border sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="truncate font-medium">{r.title}</span>
                     <span
                       className={`rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase ${
@@ -215,7 +215,7 @@ function RoomsPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2 sm:justify-end">
                   <button
                     onClick={() => copy(r.code)}
                     className="flex items-center gap-2 rounded-md bg-background px-3 py-1.5 font-mono text-sm font-bold tracking-widest ring-1 ring-border hover:ring-brand/60"
