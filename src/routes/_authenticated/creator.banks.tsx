@@ -90,17 +90,17 @@ function BanksPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-surface/50 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center gap-3 px-6 py-4">
+        <div className="mx-auto flex max-w-5xl items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link to="/dashboard">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="mr-1 size-4" /> Dashboard
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold">Bank Soal</h1>
+          <h1 className="truncate text-base font-semibold sm:text-lg">Bank Soal</h1>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 py-8">
+      <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="mb-8 rounded-2xl bg-surface p-6 ring-1 ring-border">
           <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
             <Plus className="size-5 text-brand" /> Buat Bank Soal Baru
