@@ -203,18 +203,18 @@ function PlayerDashboard() {
   const [code, setCode] = useState("");
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <div className="lg:col-span-2 rounded-2xl bg-surface p-8 ring-1 ring-border">
-        <h2 className="mb-1 text-xl font-semibold">Gabung Room</h2>
+      <div className="lg:col-span-2 rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+        <h2 className="mb-1 text-lg font-semibold sm:text-xl">Gabung Room</h2>
         <p className="mb-6 text-sm text-muted-foreground">
           Masukkan kode room dari guru untuk bertanding di Adventure Mode.
         </p>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <input
             value={code}
             onChange={(e) => setCode(e.target.value.toUpperCase())}
             placeholder="ABC123"
             maxLength={8}
-            className="flex-1 rounded-lg bg-background px-4 py-3 font-mono text-lg tracking-widest uppercase ring-1 ring-border outline-none focus:ring-brand/60"
+            className="min-w-0 flex-1 rounded-lg bg-background px-4 py-3 font-mono text-lg tracking-widest uppercase ring-1 ring-border outline-none focus:ring-brand/60"
           />
           <Button
             className="bg-brand text-brand-foreground hover:brightness-110"
@@ -228,7 +228,7 @@ function PlayerDashboard() {
           <h3 className="mb-3 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
             Loadout Adventure Mode
           </h3>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <SkillPreview icon={<Snowflake className="size-5" />} name="Freeze" color="text-arcade-sky ring-arcade-sky/40" />
             <SkillPreview icon={<Zap className="size-5" />} name="Double" color="text-accent ring-accent/40" />
             <SkillPreview icon={<Shield className="size-5" />} name="Shield" color="text-arcade-rose ring-arcade-rose/40" />
@@ -236,8 +236,8 @@ function PlayerDashboard() {
         </div>
       </div>
 
-      <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
-        <h2 className="mb-1 text-xl font-semibold">Practice Mode</h2>
+      <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
+        <h2 className="mb-1 text-lg font-semibold sm:text-xl">Practice Mode</h2>
         <p className="mb-6 text-sm text-muted-foreground">
           Belajar mandiri dari bank soal publik.
         </p>
