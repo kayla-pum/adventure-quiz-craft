@@ -147,7 +147,7 @@ function AuthPage() {
           <ArrowLeft className="size-4" /> Kembali ke lobi
         </Link>
 
-        <div className="rounded-2xl bg-surface p-8 ring-1 ring-border">
+        <div className="rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
           <div className="mb-6 flex items-center gap-2">
             <div className="grid size-8 place-items-center rounded-md bg-brand">
               <div className="size-4 rotate-45 bg-background" />
