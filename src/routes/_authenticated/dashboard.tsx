@@ -120,14 +120,14 @@ function Dashboard() {
         )}
 
         {/* Welcome */}
-        <div className="mb-8 rounded-2xl border border-brand/30 bg-gradient-to-br from-brand/15 via-transparent to-transparent p-8">
+        <div className="mb-8 rounded-2xl border border-brand/30 bg-gradient-to-br from-brand/15 via-transparent to-transparent p-5 sm:p-8">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-[10px] font-semibold tracking-widest text-brand uppercase">
             <Sparkles className="size-3" /> Ready Player One
           </div>
-          <h1 className="mb-2 text-3xl font-semibold tracking-tight md:text-4xl">
+          <h1 className="mb-2 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
             Selamat datang, {displayName}
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-sm text-muted-foreground sm:text-base">
             {activeRole === "creator" && "Bangun bank soal dan publikasikan modul pembelajaran untuk semua player."}
             {activeRole === "guru" && "Kelola room, atur countdown, dan pantau performa player secara real-time."}
             {activeRole === "player" && "Pilih bank soal untuk practice, atau gabung room dengan kode dari guru."}
