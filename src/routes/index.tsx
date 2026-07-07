@@ -246,12 +246,12 @@ function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-4xl px-6 pb-24 text-center">
-        <div className="rounded-3xl border border-brand/30 bg-gradient-to-b from-brand/10 to-transparent p-12">
-          <h3 className="mb-4 text-3xl font-semibold tracking-tight">
+      <section className="mx-auto max-w-4xl px-4 pb-16 text-center sm:px-6 sm:pb-24">
+        <div className="rounded-3xl border border-brand/30 bg-gradient-to-b from-brand/10 to-transparent p-6 sm:p-12">
+          <h3 className="mb-4 text-2xl font-semibold tracking-tight sm:text-3xl">
             Siap memulai quest pertamamu?
           </h3>
-          <p className="mb-8 text-muted-foreground">
+          <p className="mb-8 text-sm text-muted-foreground sm:text-base">
             Daftar gratis. Pilih peranmu — Creator, Guru, atau Player.
           </p>
           <Link
@@ -263,9 +263,6 @@ function Landing() {
           </Link>
         </div>
       </section>
-
-      <footer className="border-t border-border px-6 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <div className="grid size-6 place-items-center rounded bg-secondary">
               <div className="size-3 rotate-45 bg-brand" />
