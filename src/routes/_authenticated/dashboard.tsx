@@ -72,21 +72,21 @@ function Dashboard() {
     <div className="min-h-screen bg-background">
       {/* Top HUD */}
       <header className="border-b border-border bg-surface/50 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="grid size-8 place-items-center rounded-md bg-brand">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <Link to="/" className="flex min-w-0 items-center gap-2">
+            <div className="grid size-8 shrink-0 place-items-center rounded-md bg-brand">
               <div className="size-4 rotate-45 bg-background" />
             </div>
-            <span className="text-lg font-semibold tracking-tight">QUESTLMS</span>
+            <span className="truncate text-base font-semibold tracking-tight sm:text-lg">QUESTLMS</span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <div className="hidden text-right sm:block">
               <div className="text-sm font-medium">{displayName}</div>
               <div className="text-[10px] tracking-widest text-muted-foreground uppercase">
                 {email}
               </div>
             </div>
-            <div className="grid size-10 place-items-center rounded-full bg-brand/20 text-sm font-bold text-brand ring-2 ring-brand/40">
+            <div className="grid size-9 shrink-0 place-items-center rounded-full bg-brand/20 text-sm font-bold text-brand ring-2 ring-brand/40 sm:size-10">
               {displayName.slice(0, 1).toUpperCase()}
             </div>
             <Button variant="ghost" size="sm" onClick={handleSignOut}>
@@ -96,7 +96,7 @@ function Dashboard() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 py-10">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10">
         {/* Role switcher */}
         {roles.length > 0 && (
           <div className="mb-8 flex flex-wrap items-center gap-3">
