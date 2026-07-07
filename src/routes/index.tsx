@@ -212,17 +212,17 @@ function Landing() {
       </section>
 
       {/* Themes */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mb-12 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mb-10 flex flex-col gap-3 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="mb-2 block text-[10px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
               Customization
             </span>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
               Dunia Anda, Aturan Anda
             </h2>
           </div>
-          <p className="max-w-[30ch] text-right text-sm text-muted-foreground">
+          <p className="max-w-[30ch] text-sm text-muted-foreground sm:text-right">
             7 tema visual untuk pengalaman imersif.
           </p>
         </div>
