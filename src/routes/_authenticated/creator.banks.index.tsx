@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { ArrowLeft, Plus, PencilRuler, Eye, EyeOff, Trash2 } from "lucide-react";
 
-export const Route = createFileRoute("/_authenticated/creator/banks")({
+export const Route = createFileRoute("/_authenticated/creator/banks/")({
   component: BanksPage,
 });
 
