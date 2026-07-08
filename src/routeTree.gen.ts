@@ -15,7 +15,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedGuruRoomsRouteImport } from './routes/_authenticated/guru.rooms'
-import { Route as AuthenticatedCreatorBanksRouteImport } from './routes/_authenticated/creator.banks'
+import { Route as AuthenticatedCreatorBanksIndexRouteImport } from './routes/_authenticated/creator.banks.index'
 import { Route as AuthenticatedCreatorBanksBankIdRouteImport } from './routes/_authenticated/creator.banks.$bankId'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -47,17 +47,17 @@ const AuthenticatedGuruRoomsRoute = AuthenticatedGuruRoomsRouteImport.update({
   path: '/guru/rooms',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedCreatorBanksRoute =
-  AuthenticatedCreatorBanksRouteImport.update({
-    id: '/creator/banks',
-    path: '/creator/banks',
+const AuthenticatedCreatorBanksIndexRoute =
+  AuthenticatedCreatorBanksIndexRouteImport.update({
+    id: '/creator/banks/',
+    path: '/creator/banks/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedCreatorBanksBankIdRoute =
   AuthenticatedCreatorBanksBankIdRouteImport.update({
-    id: '/$bankId',
-    path: '/$bankId',
-    getParentRoute: () => AuthenticatedCreatorBanksRoute,
+    id: '/creator/banks/$bankId',
+    path: '/creator/banks/$bankId',
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -65,18 +65,18 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/creator/banks': typeof AuthenticatedCreatorBanksRouteWithChildren
   '/guru/rooms': typeof AuthenticatedGuruRoomsRoute
   '/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
+  '/creator/banks/': typeof AuthenticatedCreatorBanksIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/creator/banks': typeof AuthenticatedCreatorBanksRouteWithChildren
   '/guru/rooms': typeof AuthenticatedGuruRoomsRoute
   '/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
+  '/creator/banks': typeof AuthenticatedCreatorBanksIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -85,9 +85,9 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/creator/banks': typeof AuthenticatedCreatorBanksRouteWithChildren
   '/_authenticated/guru/rooms': typeof AuthenticatedGuruRoomsRoute
   '/_authenticated/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
+  '/_authenticated/creator/banks/': typeof AuthenticatedCreatorBanksIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,18 +96,18 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/dashboard'
-    | '/creator/banks'
     | '/guru/rooms'
     | '/creator/banks/$bankId'
+    | '/creator/banks/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/auth'
     | '/sitemap.xml'
     | '/dashboard'
-    | '/creator/banks'
     | '/guru/rooms'
     | '/creator/banks/$bankId'
+    | '/creator/banks'
   id:
     | '__root__'
     | '/'
@@ -115,9 +115,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/_authenticated/dashboard'
-    | '/_authenticated/creator/banks'
     | '/_authenticated/guru/rooms'
     | '/_authenticated/creator/banks/$bankId'
+    | '/_authenticated/creator/banks/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,47 +171,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedGuruRoomsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/creator/banks': {
-      id: '/_authenticated/creator/banks'
+    '/_authenticated/creator/banks/': {
+      id: '/_authenticated/creator/banks/'
       path: '/creator/banks'
-      fullPath: '/creator/banks'
-      preLoaderRoute: typeof AuthenticatedCreatorBanksRouteImport
+      fullPath: '/creator/banks/'
+      preLoaderRoute: typeof AuthenticatedCreatorBanksIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/creator/banks/$bankId': {
       id: '/_authenticated/creator/banks/$bankId'
-      path: '/$bankId'
+      path: '/creator/banks/$bankId'
       fullPath: '/creator/banks/$bankId'
       preLoaderRoute: typeof AuthenticatedCreatorBanksBankIdRouteImport
-      parentRoute: typeof AuthenticatedCreatorBanksRoute
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
 
-interface AuthenticatedCreatorBanksRouteChildren {
-  AuthenticatedCreatorBanksBankIdRoute: typeof AuthenticatedCreatorBanksBankIdRoute
-}
-
-const AuthenticatedCreatorBanksRouteChildren: AuthenticatedCreatorBanksRouteChildren =
-  {
-    AuthenticatedCreatorBanksBankIdRoute: AuthenticatedCreatorBanksBankIdRoute,
-  }
-
-const AuthenticatedCreatorBanksRouteWithChildren =
-  AuthenticatedCreatorBanksRoute._addFileChildren(
-    AuthenticatedCreatorBanksRouteChildren,
-  )
-
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedCreatorBanksRoute: typeof AuthenticatedCreatorBanksRouteWithChildren
   AuthenticatedGuruRoomsRoute: typeof AuthenticatedGuruRoomsRoute
+  AuthenticatedCreatorBanksBankIdRoute: typeof AuthenticatedCreatorBanksBankIdRoute
+  AuthenticatedCreatorBanksIndexRoute: typeof AuthenticatedCreatorBanksIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedCreatorBanksRoute: AuthenticatedCreatorBanksRouteWithChildren,
   AuthenticatedGuruRoomsRoute: AuthenticatedGuruRoomsRoute,
+  AuthenticatedCreatorBanksBankIdRoute: AuthenticatedCreatorBanksBankIdRoute,
+  AuthenticatedCreatorBanksIndexRoute: AuthenticatedCreatorBanksIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
