@@ -207,6 +207,16 @@ export type Database = {
           time_limit_sec: number
         }[]
       }
+      get_published_question_banks: {
+        Args: never
+        Returns: {
+          description: string
+          id: string
+          question_count: number
+          theme: string
+          title: string
+        }[]
+      }
       get_room_by_code: {
         Args: { _code: string }
         Returns: {
