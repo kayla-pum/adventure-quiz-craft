@@ -14,6 +14,7 @@ import {
   Plus,
   LogOut,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -22,6 +23,13 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
 });
 
 type Role = "creator" | "guru" | "player";
+
+type PublishedBank = {
+  id: string;
+  title: string;
+  description: string | null;
+  theme: string;
+};
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -201,6 +209,23 @@ function GuruDashboard() {
 
 function PlayerDashboard() {
   const [code, setCode] = useState("");
+  const [banks, setBanks] = useState<PublishedBank[]>([]);
+  const [loadingBanks, setLoadingBanks] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase
+        .from("question_banks")
+        .select("id,title,description,theme")
+        .eq("is_published", true)
+        .order("created_at", { ascending: false });
+
+      if (error) toast.error(error.message);
+      setBanks((data ?? []) as PublishedBank[]);
+      setLoadingBanks(false);
+    })();
+  }, []);
+
   return (
     <div className="grid gap-6 lg:grid-cols-3">
       <div className="lg:col-span-2 rounded-2xl bg-surface p-5 ring-1 ring-border sm:p-8">
@@ -241,7 +266,32 @@ function PlayerDashboard() {
         <p className="mb-6 text-sm text-muted-foreground">
           Belajar mandiri dari bank soal publik.
         </p>
-        <EmptyState title="Belum ada bank soal" desc="Bank soal dari Creator akan muncul di sini." compact />
+        {loadingBanks ? (
+          <div className="text-sm text-muted-foreground">Memuat bank soal…</div>
+        ) : banks.length === 0 ? (
+          <EmptyState title="Belum ada bank soal" desc="Bank soal dari Creator akan muncul di sini." compact />
+        ) : (
+          <div className="grid gap-3">
+            {banks.map((bank) => (
+              <Link
+                key={bank.id}
+                to="/play/$bankId"
+                params={{ bankId: bank.id }}
+                className="group rounded-xl bg-background p-4 ring-1 ring-border transition-colors hover:ring-brand/60"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="truncate font-medium">{bank.title}</div>
+                    <div className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                      {bank.description || "Siap dimainkan di Practice Mode."}
+                    </div>
+                  </div>
+                  <ArrowRight className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-brand" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

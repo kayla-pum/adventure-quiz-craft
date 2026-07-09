@@ -14,6 +14,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedPlayBankIdRouteImport } from './routes/_authenticated/play.$bankId'
 import { Route as AuthenticatedGuruRoomsRouteImport } from './routes/_authenticated/guru.rooms'
 import { Route as AuthenticatedCreatorBanksIndexRouteImport } from './routes/_authenticated/creator.banks.index'
 import { Route as AuthenticatedCreatorBanksBankIdRouteImport } from './routes/_authenticated/creator.banks.$bankId'
@@ -42,6 +43,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPlayBankIdRoute = AuthenticatedPlayBankIdRouteImport.update({
+  id: '/play/$bankId',
+  path: '/play/$bankId',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedGuruRoomsRoute = AuthenticatedGuruRoomsRouteImport.update({
   id: '/guru/rooms',
   path: '/guru/rooms',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/guru/rooms': typeof AuthenticatedGuruRoomsRoute
+  '/play/$bankId': typeof AuthenticatedPlayBankIdRoute
   '/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
   '/creator/banks/': typeof AuthenticatedCreatorBanksIndexRoute
 }
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/guru/rooms': typeof AuthenticatedGuruRoomsRoute
+  '/play/$bankId': typeof AuthenticatedPlayBankIdRoute
   '/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
   '/creator/banks': typeof AuthenticatedCreatorBanksIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/guru/rooms': typeof AuthenticatedGuruRoomsRoute
+  '/_authenticated/play/$bankId': typeof AuthenticatedPlayBankIdRoute
   '/_authenticated/creator/banks/$bankId': typeof AuthenticatedCreatorBanksBankIdRoute
   '/_authenticated/creator/banks/': typeof AuthenticatedCreatorBanksIndexRoute
 }
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/dashboard'
     | '/guru/rooms'
+    | '/play/$bankId'
     | '/creator/banks/$bankId'
     | '/creator/banks/'
   fileRoutesByTo: FileRoutesByTo
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/dashboard'
     | '/guru/rooms'
+    | '/play/$bankId'
     | '/creator/banks/$bankId'
     | '/creator/banks'
   id:
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_authenticated/dashboard'
     | '/_authenticated/guru/rooms'
+    | '/_authenticated/play/$bankId'
     | '/_authenticated/creator/banks/$bankId'
     | '/_authenticated/creator/banks/'
   fileRoutesById: FileRoutesById
@@ -164,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/play/$bankId': {
+      id: '/_authenticated/play/$bankId'
+      path: '/play/$bankId'
+      fullPath: '/play/$bankId'
+      preLoaderRoute: typeof AuthenticatedPlayBankIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/guru/rooms': {
       id: '/_authenticated/guru/rooms'
       path: '/guru/rooms'
@@ -191,6 +210,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedGuruRoomsRoute: typeof AuthenticatedGuruRoomsRoute
+  AuthenticatedPlayBankIdRoute: typeof AuthenticatedPlayBankIdRoute
   AuthenticatedCreatorBanksBankIdRoute: typeof AuthenticatedCreatorBanksBankIdRoute
   AuthenticatedCreatorBanksIndexRoute: typeof AuthenticatedCreatorBanksIndexRoute
 }
@@ -198,6 +218,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedGuruRoomsRoute: AuthenticatedGuruRoomsRoute,
+  AuthenticatedPlayBankIdRoute: AuthenticatedPlayBankIdRoute,
   AuthenticatedCreatorBanksBankIdRoute: AuthenticatedCreatorBanksBankIdRoute,
   AuthenticatedCreatorBanksIndexRoute: AuthenticatedCreatorBanksIndexRoute,
 }
