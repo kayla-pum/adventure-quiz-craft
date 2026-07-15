@@ -65,6 +65,14 @@ function Landing() {
           >
             Mulai Gratis
           </Link>
+          <a
+            href="/app-debug.apk"
+            download
+            className="inline-flex items-center gap-1.5 rounded-md border border-brand/40 bg-brand/10 px-3 py-2 text-xs font-semibold text-brand transition-all hover:bg-brand/20 sm:px-4 sm:text-sm"
+          >
+            <ArrowRight className="size-3.5 rotate-90" /> Download APK
+          </a>
+
         </div>
       </nav>
 
